@@ -19,11 +19,6 @@ export default defineConfig({
           singleton: true,
           requiredVersion: "^19.0.0",
         },
-        vue: {
-          singleton: true,
-          eager: true, // force bundling instead of external import
-          import: false,
-        },
       },
     }),
   ],

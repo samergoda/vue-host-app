@@ -23,6 +23,9 @@ export default defineConfig({
     }),
   ],
   build: {
+    rollupOptions: {
+      external: [], // 🚫 force no external "vue"
+    },
     modulePreload: false,
     target: "esnext",
     minify: true,

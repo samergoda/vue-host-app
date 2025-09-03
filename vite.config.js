@@ -22,6 +22,7 @@ export default defineConfig({
         vue: {
           singleton: true,
           eager: true, // force bundling instead of external import
+          import: false,
         },
       },
     }),

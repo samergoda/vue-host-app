@@ -11,6 +11,10 @@ export default defineConfig({
         remote_app: "https://react-remote-app.netlify.app/assets/remoteEntry.js",
       },
       shared: {
+        vue: {
+          singleton: true,
+          requiredVersion: "^3.0.0",
+        },
         react: {
           singleton: true,
           requiredVersion: "^19.0.0",
@@ -23,12 +27,16 @@ export default defineConfig({
     }),
   ],
   build: {
-    rollupOptions: {
-      external: [], // 🚫 force no external "vue"
-    },
-    modulePreload: false,
     target: "esnext",
     minify: true,
     cssCodeSplit: false,
+    modulePreload: {
+      polyfill: false,
+    },
+    rollupOptions: {
+      output: {
+        format: "esm",
+      },
+    },
   },
 });
